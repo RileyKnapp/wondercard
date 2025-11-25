@@ -3,7 +3,7 @@ import { UploadedFile, AspectRatio, ArtStyle } from "../types";
 
 // Helper to get AI Client - assumes API key is in environment from the selection dialog
 const getAiClient = () => {
-  return new GoogleGenAI({ apiKey: process.env.API_KEY });
+  return new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
 };
 
 /**
