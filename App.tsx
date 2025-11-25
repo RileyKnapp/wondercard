@@ -30,6 +30,12 @@ const App: React.FC = () => {
   }, []);
 
   const checkApiKey = async () => {
+    const envKey = import.meta.env.VITE_GEMINI_API_KEY;
+    if (envKey) {
+      setHasKey(true);
+      return;
+    }
+
     const aistudio = (window as any).aistudio;
     if (aistudio && aistudio.hasSelectedApiKey) {
       const selected = await aistudio.hasSelectedApiKey();
